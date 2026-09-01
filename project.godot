@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 buses/default_bus_layout="res://resources/default_bus_layout.tres"
 
+[autoload]
+
+SignalHub="*uid://y8ibv56a0hv1"
+
 [display]
 
 window/stretch/mode="canvas_items"

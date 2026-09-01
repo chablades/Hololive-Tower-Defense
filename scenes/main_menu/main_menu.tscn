@@ -41,8 +41,9 @@ visible = false
 z_index = 10
 layout_mode = 1
 
-[node name="Title" type="PanelContainer" parent="." unique_id=309977044]
-layout_mode = 1
+[node name="MainMenuLayer" type="CanvasLayer" parent="." unique_id=1521328333]
+
+[node name="Title" type="PanelContainer" parent="MainMenuLayer" unique_id=309977044]
 anchors_preset = -1
 anchor_left = 0.033
 anchor_top = 0.078
@@ -52,7 +53,7 @@ offset_right = -0.3201294
 offset_bottom = -0.17601013
 theme_override_styles/panel = ExtResource("2_3ovsr")
 
-[node name="Label" type="Label" parent="Title" unique_id=277838910]
+[node name="Label" type="Label" parent="MainMenuLayer/Title" unique_id=277838910]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.20152658, 0.20152658, 0.20152658, 1)
@@ -60,8 +61,7 @@ theme_override_fonts/font = ExtResource("3_3ovsr")
 theme_override_font_sizes/font_size = 60
 text = "Hololive Tower Defense"
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=638325368]
-layout_mode = 1
+[node name="PanelContainer" type="PanelContainer" parent="MainMenuLayer" unique_id=638325368]
 anchors_preset = -1
 anchor_left = 0.033
 anchor_top = 0.422
@@ -71,14 +71,14 @@ offset_right = 227.31198
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("2_3ovsr")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1108285340]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenuLayer/PanelContainer" unique_id=1108285340]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 11
 alignment = 1
 
-[node name="Start" type="TextureButton" parent="PanelContainer/VBoxContainer" unique_id=1593102374]
+[node name="Start" type="TextureButton" parent="MainMenuLayer/PanelContainer/VBoxContainer" unique_id=1593102374]
 custom_minimum_size = Vector2(230, 70)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -87,7 +87,7 @@ texture_hover = ExtResource("4_5seab")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Start" unique_id=1803852460]
+[node name="Label" type="Label" parent="MainMenuLayer/PanelContainer/VBoxContainer/Start" unique_id=1803852460]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -105,13 +105,13 @@ label_settings = SubResource("LabelSettings_lqpn7")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Options" type="TextureButton" parent="PanelContainer/VBoxContainer" unique_id=529543652]
+[node name="Options" type="TextureButton" parent="MainMenuLayer/PanelContainer/VBoxContainer" unique_id=529543652]
 layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource("6_thkx5")
 texture_hover = ExtResource("7_x2yjq")
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Options" unique_id=337727621]
+[node name="Label" type="Label" parent="MainMenuLayer/PanelContainer/VBoxContainer/Options" unique_id=337727621]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -129,13 +129,13 @@ label_settings = ExtResource("9_thkx5")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Exit" type="TextureButton" parent="PanelContainer/VBoxContainer" unique_id=952186788]
+[node name="Exit" type="TextureButton" parent="MainMenuLayer/PanelContainer/VBoxContainer" unique_id=952186788]
 layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource("6_thkx5")
 texture_hover = ExtResource("7_x2yjq")
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Exit" unique_id=2091244424]
+[node name="Label" type="Label" parent="MainMenuLayer/PanelContainer/VBoxContainer/Exit" unique_id=2091244424]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -153,8 +153,6 @@ label_settings = ExtResource("9_thkx5")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MainMenuTower" type="CanvasLayer" parent="." unique_id=1521328333]
-
-[connection signal="pressed" from="PanelContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="MainMenuLayer/PanelContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MainMenuLayer/PanelContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MainMenuLayer/PanelContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
