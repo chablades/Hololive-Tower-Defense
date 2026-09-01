@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b6wieejar11eo"
+path="res://.godot/imported/_Original Wallpaper_ Gawr Gura and Amelia Watson vibing near a campfire live wallpaper.ogg-a69eaffa77bc9ef4c52be2446ed7dafe.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/_Original Wallpaper_ Gawr Gura and Amelia Watson vibing near a campfire live wallpaper.ogg"
+dest_files=["res://.godot/imported/_Original Wallpaper_ Gawr Gura and Amelia Watson vibing near a campfire live wallpaper.ogg-a69eaffa77bc9ef4c52be2446ed7dafe.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

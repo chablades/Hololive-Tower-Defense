@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://bxthwviewrnlf"]
+
+[ext_resource type="Script" uid="uid://b7ckdsmh1yksg" path="res://scenes/slider/slider.gd" id="1_l5fbp"]
+[ext_resource type="Texture2D" uid="uid://csacr4jj02u85" path="res://assets/PNG/Blue/Double/slide_horizontal_grey.png" id="2_3y4fb"]
+[ext_resource type="Texture2D" uid="uid://blg46lw3jfcwk" path="res://assets/PNG/Blue/Double/slide_hangle.png" id="3_b3gye"]
+[ext_resource type="Texture2D" uid="uid://g7pbl1rth8r3" path="res://assets/PNG/Blue/Double/slide_horizontal_color_trimmed.png" id="3_sc566"]
+
+[node name="Slider" type="Control" unique_id=127818500]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -10.0
+offset_right = -952.0
+offset_bottom = -638.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l5fbp")
+value = 1.0
+track_texture = ExtResource("2_3y4fb")
+
+[node name="TrackTexture" type="NinePatchRect" parent="." unique_id=277370180]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 20.0
+texture = ExtResource("2_3y4fb")
+patch_margin_left = 20
+patch_margin_right = 20
+
+[node name="GrabberArea" type="NinePatchRect" parent="." unique_id=1907025019]
+layout_mode = 0
+offset_right = 20.0
+offset_bottom = 20.0
+texture = ExtResource("3_sc566")
+patch_margin_left = 20
+
+[node name="Grabber" type="TextureRect" parent="." unique_id=1683276053]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -6.0
+offset_right = 21.0
+offset_bottom = 24.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("3_b3gye")
+expand_mode = 1
+stretch_mode = 4

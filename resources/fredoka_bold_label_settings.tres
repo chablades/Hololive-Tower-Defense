@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://u44w48svspk"]
+
+[ext_resource type="FontVariation" uid="uid://bagfrbt6mkjm7" path="res://resources/fredoka_bold_font.tres" id="1_8055k"]
+
+[resource]
+font = ExtResource("1_8055k")
+font_size = 30
+font_color = Color(0.23031491, 0.23031494, 0.23031494, 1)

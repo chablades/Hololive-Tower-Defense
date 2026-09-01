@@ -1,0 +1,160 @@
+[gd_scene format=3 uid="uid://dcmkcghal8ajq"]
+
+[ext_resource type="Script" uid="uid://c6ue203ktecyd" path="res://scenes/main_menu/main_menu.gd" id="1_4xg86"]
+[ext_resource type="VideoStream" uid="uid://15sm318uxkrc" path="res://assets/videos/campfire_background_1080p.ogv" id="1_ob46e"]
+[ext_resource type="StyleBox" uid="uid://cfxs21r7phn8s" path="res://resources/blue_box_texture.tres" id="2_3ovsr"]
+[ext_resource type="FontVariation" uid="uid://bagfrbt6mkjm7" path="res://resources/fredoka_bold_font.tres" id="3_3ovsr"]
+[ext_resource type="Texture2D" uid="uid://fuqlklcmqrxw" path="res://assets/Vector/Blue/button_rectangle_depth_gloss.svg" id="4_5seab"]
+[ext_resource type="Texture2D" uid="uid://dr8xeknjpjdon" path="res://assets/Vector/Blue/button_rectangle_depth_flat.svg" id="5_4xg86"]
+[ext_resource type="Texture2D" uid="uid://d2ueg4l3ash0t" path="res://assets/PNG/Grey/Default/button_rectangle_depth_line.png" id="6_thkx5"]
+[ext_resource type="Texture2D" uid="uid://s28gxmux6dry" path="res://assets/Vector/Extra/button_rectangle_depth_line.svg" id="7_x2yjq"]
+[ext_resource type="LabelSettings" uid="uid://u44w48svspk" path="res://resources/fredoka_bold_label_settings.tres" id="9_thkx5"]
+[ext_resource type="PackedScene" uid="uid://cc5kpbp3a8ovy" path="res://scenes/options_menu/options_menu.tscn" id="10_x2yjq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lqpn7"]
+font = ExtResource("3_3ovsr")
+font_size = 30
+
+[node name="MainMenu" type="Control" unique_id=600271067]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4xg86")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1414262870]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_ob46e")
+autoplay = true
+loop = true
+bus = &"Music"
+
+[node name="OptionsMenu" parent="." unique_id=1194076261 instance=ExtResource("10_x2yjq")]
+visible = false
+z_index = 10
+layout_mode = 1
+
+[node name="Title" type="PanelContainer" parent="." unique_id=309977044]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.033
+anchor_top = 0.078
+anchor_right = 0.71300006
+anchor_bottom = 0.317
+offset_right = -0.3201294
+offset_bottom = -0.17601013
+theme_override_styles/panel = ExtResource("2_3ovsr")
+
+[node name="Label" type="Label" parent="Title" unique_id=277838910]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.20152658, 0.20152658, 0.20152658, 1)
+theme_override_fonts/font = ExtResource("3_3ovsr")
+theme_override_font_sizes/font_size = 60
+text = "Hololive Tower Defense"
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=638325368]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.033
+anchor_top = 0.422
+anchor_right = 0.077
+anchor_bottom = 0.866
+offset_right = 227.31198
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_3ovsr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1108285340]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 11
+alignment = 1
+
+[node name="Start" type="TextureButton" parent="PanelContainer/VBoxContainer" unique_id=1593102374]
+custom_minimum_size = Vector2(230, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("5_4xg86")
+texture_hover = ExtResource("4_5seab")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Start" unique_id=1803852460]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.01599
+offset_top = -23.455994
+offset_right = 34.98401
+offset_bottom = 14.544006
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start"
+label_settings = SubResource("LabelSettings_lqpn7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Options" type="TextureButton" parent="PanelContainer/VBoxContainer" unique_id=529543652]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("6_thkx5")
+texture_hover = ExtResource("7_x2yjq")
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Options" unique_id=337727621]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.01599
+offset_top = -23.455994
+offset_right = 34.98401
+offset_bottom = 14.544006
+grow_horizontal = 2
+grow_vertical = 2
+text = "Options"
+label_settings = ExtResource("9_thkx5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Exit" type="TextureButton" parent="PanelContainer/VBoxContainer" unique_id=952186788]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("6_thkx5")
+texture_hover = ExtResource("7_x2yjq")
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Exit" unique_id=2091244424]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.01599
+offset_top = -23.455994
+offset_right = 34.98401
+offset_bottom = 14.544006
+grow_horizontal = 2
+grow_vertical = 2
+text = "Exit"
+label_settings = ExtResource("9_thkx5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainMenuTower" type="CanvasLayer" parent="." unique_id=1521328333]
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

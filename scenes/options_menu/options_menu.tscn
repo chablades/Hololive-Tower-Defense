@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://cc5kpbp3a8ovy"]
+
+[ext_resource type="Script" uid="uid://c0tngduvbhkic" path="res://scenes/options_menu/options_menu.gd" id="1_7inox"]
+[ext_resource type="Texture2D" uid="uid://cqqx7wlgmsbvx" path="res://assets/PNG/Blue/Double/button_square_depth_border.png" id="1_pyb0l"]
+[ext_resource type="LabelSettings" uid="uid://u44w48svspk" path="res://resources/fredoka_bold_label_settings.tres" id="2_44mp6"]
+[ext_resource type="PackedScene" uid="uid://bxthwviewrnlf" path="res://scenes/slider/slider.tscn" id="3_44mp6"]
+[ext_resource type="Texture2D" uid="uid://d2ueg4l3ash0t" path="res://assets/PNG/Grey/Default/button_rectangle_depth_line.png" id="5_8eue1"]
+[ext_resource type="Texture2D" uid="uid://s28gxmux6dry" path="res://assets/Vector/Extra/button_rectangle_depth_line.svg" id="6_y4bli"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sbo7d"]
+texture = ExtResource("1_pyb0l")
+texture_margin_left = 30.0
+texture_margin_top = 30.0
+texture_margin_right = 30.0
+texture_margin_bottom = 30.0
+
+[node name="OptionsMenu" type="Panel" unique_id=1194076261]
+z_index = 100
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7inox")
+
+[node name="Panel" type="Panel" parent="." unique_id=1727417024]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.347
+anchor_top = 0.15400001
+anchor_right = 0.651
+anchor_bottom = 0.772
+offset_left = 0.25598145
+offset_top = 0.20799255
+offset_right = 0.047973633
+offset_bottom = -0.25601196
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_sbo7d")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=733793096]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = 16.0
+offset_right = -24.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_position = Vector2(30, 0)
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer" unique_id=754712395]
+layout_mode = 2
+text = "Options"
+label_settings = ExtResource("2_44mp6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BGM" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=897561639]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/BGM" unique_id=1430428634]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+offset_transform_enabled = true
+text = "BGM"
+label_settings = ExtResource("2_44mp6")
+vertical_alignment = 1
+
+[node name="Slider" parent="Panel/VBoxContainer/BGM" unique_id=127818500 instance=ExtResource("3_44mp6")]
+layout_mode = 2
+size_flags_vertical = 0
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 9)
+
+[node name="SFX" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=353359722]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/SFX" unique_id=116657801]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "SFX"
+label_settings = ExtResource("2_44mp6")
+
+[node name="Slider" parent="Panel/VBoxContainer/SFX" unique_id=1165915644 instance=ExtResource("3_44mp6")]
+layout_mode = 2
+size_flags_vertical = 0
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 9)
+
+[node name="Back" type="TextureButton" parent="Panel/VBoxContainer" unique_id=965948943]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+texture_normal = ExtResource("5_8eue1")
+texture_hover = ExtResource("6_y4bli")
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Back" unique_id=185449629]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.01599
+offset_top = -23.455994
+offset_right = 34.98401
+offset_bottom = 14.544006
+grow_horizontal = 2
+grow_vertical = 2
+text = "Back"
+label_settings = ExtResource("2_44mp6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="value_changed" from="Panel/VBoxContainer/BGM/Slider" to="." method="_on_bgm_value_changed"]
