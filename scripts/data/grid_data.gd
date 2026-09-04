@@ -30,7 +30,7 @@ func get_min_coordinates() -> Vector3i:
 
 
 func get_2d_cell_size() -> Vector2i:
-	return Vector2i(_grid_map.cell_size.x, _grid_map.cell_size.z)
+	return Vector2i(int(_grid_map.cell_size.x), int(_grid_map.cell_size.z))
 
 
 func get_not_walkable_cells() -> Array[Vector3i]:

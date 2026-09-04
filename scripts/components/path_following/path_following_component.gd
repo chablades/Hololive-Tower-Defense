@@ -20,7 +20,7 @@ func _physics_process(delta: float) -> void:
 				_path = []
 			else:
 				_current_index += 1
-				moving_right.emit(is_moving_right())
+				emit_moving_right(is_moving_right())
 
 
 func is_moving_right() -> bool:
@@ -33,7 +33,7 @@ func go_to(path: Variant) -> void:
 	if path:
 		_path = path as Array[Vector3]
 		_current_index = 0
-		moving_right.emit(is_moving_right())
+		emit_moving_right(is_moving_right())
 
 
 func follow_path(delta: float) -> void:

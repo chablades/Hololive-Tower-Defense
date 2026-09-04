@@ -13,5 +13,9 @@ func _ready() -> void:
 		push_error("No parent node for MovementComponent")
 
 
-func go_to(data: Variant) -> void:
+func emit_moving_right(is_right: bool) -> void:
+	moving_right.emit(is_right)
+
+
+func go_to(_data: Variant) -> void:
 	push_error("go_to() not implemented")
