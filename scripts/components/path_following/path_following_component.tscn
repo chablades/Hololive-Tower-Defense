@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cs4omikhhoswp"]
+
+[ext_resource type="Script" uid="uid://d3speiaj3jr5g" path="res://scripts/components/path_following/path_following_component.gd" id="1_yivoy"]
+
+[node name="PathFollowingComponent" type="Node" unique_id=1582985973]
+script = ExtResource("1_yivoy")

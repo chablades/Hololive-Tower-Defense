@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ora6a8vtr755"]
+
+[ext_resource type="Script" uid="uid://di2ej21r5qy23" path="res://scripts/manager/enemy_manager/enemy_manager.gd" id="1_d6ln1"]
+
+[node name="EnemyManager" type="Node" unique_id=1101508211]
+script = ExtResource("1_d6ln1")
