@@ -2,7 +2,7 @@
 
 extends Node
 
-@export_tool_button("Run Mapping") var run_function = _on_tiles_changed
+@export_tool_button("Run Mapping") var run_function = generate_3d_hexgrid
 #@export var previous_cells: Dictionary[Vector2i, int] = {}
 #@export var previous_coordinates: Array[Vector2i] = []
 
@@ -26,12 +26,12 @@ func _ready() -> void:
 		push_error("HexagonTileMapLayer parent not found.")
 		return
 	if not Engine.is_editor_hint():
-		call_deferred("_on_tiles_changed")
+		call_deferred("generate_3d_hexgrid")
 	#previous_coordinates = _hex_layer.get_used_cells()
 	#for coordinates in previous_coordinates:
 		#previous_cells[coordinates] = _hex_layer.get_cell_source_id(coordinates)
 
-func _on_tiles_changed() -> void:
+func generate_3d_hexgrid() -> void:
 	print("Running mapping")
 	_hexgrid_3d = $"../Hexgrid3D"
 	remove_all_child_nodes(_hexgrid_3d)
