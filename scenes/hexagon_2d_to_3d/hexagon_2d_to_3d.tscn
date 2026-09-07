@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dyj7bde8k6o6j"]
 
-[ext_resource type="Script" uid="uid://buj6ft1vvdf2f" path="res://addons/hexagon_tilemaplayer/hexagon_tilemaplayer.gd" id="1_kap2t"]
 [ext_resource type="Texture2D" uid="uid://d3j464q1wuhqp" path="res://assets/kenney_hexagon-pack/PNG/Tiles/Terrain/Dirt/dirt_06.png" id="1_kvs7x"]
 [ext_resource type="Texture2D" uid="uid://ds2mbu6ip41lx" path="res://assets/kenney_hexagon-pack/PNG/Tiles/Terrain/Grass/grass_05.png" id="2_2upkh"]
+[ext_resource type="Script" uid="uid://38my252xfk8k" path="res://scripts/tools/hex_level.gd" id="3_2upkh"]
 [ext_resource type="Script" uid="uid://ced7auhhw5p8b" path="res://scripts/tools/hex_to_3d_sync.gd" id="4_2upkh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s5nos"]
@@ -12,6 +12,7 @@ texture_region_size = Vector2i(120, 140)
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/terrain = 0
+0:0/0/custom_data_0 = true
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_khxyv"]
 resource_name = "Grass"
@@ -29,15 +30,18 @@ terrain_set_0/terrain_0/name = "Dirt"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 terrain_set_0/terrain_1/name = "Grass"
 terrain_set_0/terrain_1/color = Color(0.21568628, 0.63529414, 0.2509804, 1)
+custom_data_layer_0/name = "is_walkable"
+custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_s5nos")
 sources/1 = SubResource("TileSetAtlasSource_khxyv")
 
 [node name="Hexagon2DTo3D" type="TileMapLayer" unique_id=508301540]
 tile_set = SubResource("TileSet_jb662")
-script = ExtResource("1_kap2t")
+script = ExtResource("3_2upkh")
+pathfinding_enabled = true
 metadata/_custom_type_script = "uid://buj6ft1vvdf2f"
 
 [node name="HexTo3DSync" type="Node" parent="." unique_id=498023429]
 script = ExtResource("4_2upkh")
 
-[node name="Hexgrid3D" type="Node3D" parent="." unique_id=209277063]
+[node name="Hexgrid3D" type="Node3D" parent="." unique_id=1907455449]

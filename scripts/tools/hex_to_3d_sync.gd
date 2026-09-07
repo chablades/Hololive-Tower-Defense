@@ -10,7 +10,7 @@ const HEX_GRASS = preload("uid://bspxi6rdo5qbe")
 const HEX_WATER = preload("uid://bnit5meh5k55u")
 # Conversion for 2d pixels to 3d meters
 # Size of mesh / Size of tile
-const PIXEL_TO_METER_RATIO: float = 2.0 / 120.0
+const PIXEL_TO_METER_RATIO: float = 2.0 / 121.0
 const TILE_TO_MESH: Dictionary = {
 	0: HEX_WATER,
 	1: HEX_GRASS,
@@ -25,6 +25,8 @@ func _ready() -> void:
 	if _hex_layer == null:
 		push_error("HexagonTileMapLayer parent not found.")
 		return
+	if not Engine.is_editor_hint():
+		call_deferred("_on_tiles_changed")
 	#previous_coordinates = _hex_layer.get_used_cells()
 	#for coordinates in previous_coordinates:
 		#previous_cells[coordinates] = _hex_layer.get_cell_source_id(coordinates)
@@ -69,8 +71,8 @@ func add_child_node(coordinates: Vector2i, scene: PackedScene) -> void:
 	var pixel_pos: Vector2 = _hex_layer.map_to_local(coordinates)
 	var world_pos: Vector3 = pixel_position_to_world(pixel_pos)
 	var hex_instance: Node = scene.instantiate()
-	print(hex_instance)
 	_hexgrid_3d.add_child(hex_instance)
+	hex_instance.owner = get_tree().edited_scene_root
 	hex_instance.global_position = world_pos
 	
 func pixel_position_to_world(pixel_pos: Vector2) -> Vector3:

@@ -24,7 +24,7 @@ func _physics_process(delta: float) -> void:
 
 
 func is_moving_right() -> bool:
-	if (_parent.global_position.x - _path[_current_index].x) > 0:
+	if (_path[_current_index].x - _parent.global_position.x) > 0:
 		return true
 	else: return false
 

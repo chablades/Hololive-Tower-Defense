@@ -1,10 +1,257 @@
 [gd_scene format=4 uid="uid://bojv3sqc268hc"]
 
-[ext_resource type="PackedScene" uid="uid://dyj7bde8k6o6j" path="res://scenes/hexagon_2d_to_3d/hexagon_2d_to_3d.tscn" id="1_5yhkw"]
+[ext_resource type="Script" uid="uid://bqhlsehbvg247" path="res://scenes/test_level/test_level_hexgrid.gd" id="1_spr4s"]
+[ext_resource type="PackedScene" uid="uid://dyj7bde8k6o6j" path="res://scenes/hexagon_2d_to_3d/hexagon_2d_to_3d.tscn" id="2_7ee36"]
+[ext_resource type="PackedScene" uid="uid://bnit5meh5k55u" path="res://assets/KayKit/tiles/hex_water.gltf" id="3_spr4s"]
+[ext_resource type="PackedScene" uid="uid://bspxi6rdo5qbe" path="res://assets/KayKit/tiles/hex_grass.gltf" id="4_btccv"]
+[ext_resource type="PackedScene" uid="uid://cgvjr8wvm1b61" path="res://scenes/enemy/enemy.tscn" id="6_btccv"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7ee36"]
+
+[sub_resource type="Sky" id="Sky_cnpj0"]
+sky_material = SubResource("ProceduralSkyMaterial_7ee36")
+
+[sub_resource type="Environment" id="Environment_s6lck"]
+background_mode = 2
+sky = SubResource("Sky_cnpj0")
 
 [node name="TestLevelHexgrid" type="Node3D" unique_id=1231465354]
+script = ExtResource("1_spr4s")
 
-[node name="Hexagon2DTo3D" parent="." unique_id=508301540 instance=ExtResource("1_5yhkw")]
-tile_map_data = PackedByteArray("AAD+////AAAAAAAAAAD/////AAAAAAAAAAAAAP//AAAAAAAAAAABAP//AAAAAAAAAAACAP//AAAAAAAAAAACAAAAAQAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAD//wAAAQAAAAAAAAD+/wAAAQAAAAAAAAD9/wAAAAAAAAAAAAD9////AAAAAAAAAAD8////AQAAAAAAAAD8/wAAAQAAAAAAAAD8/wEAAQAAAAAAAAD9/wIAAQAAAAAAAAD9/wEAAAAAAAAAAAD+/wIAAQAAAAAAAAD+/wEAAAAAAAAAAAD//wEAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAQAAAAAAAAACAAEAAQAAAAAAAAACAAIAAQAAAAAAAAABAAIAAAAAAAAAAAAAAAIAAQAAAAAAAAD//wIAAQAAAAAAAAD8/wIAAQAAAAAAAAADAAIAAQAAAAAAAAADAAAAAQAAAAAAAAD8//7/AQAAAAAAAAD9//7/AQAAAAAAAAD+//7/AQAAAAAAAAD///7/AQAAAAAAAAAAAP7/AQAAAAAAAAABAP7/AQAAAAAAAAACAP7/AQAAAAAAAAADAP7/AQAAAAAAAAA=")
+[node name="Hexagon2DTo3D" parent="." unique_id=508301540 instance=ExtResource("2_7ee36")]
+tile_map_data = PackedByteArray("AAADAP//AQAAAAAAAAACAP//AAAAAAAAAAABAP//AAAAAAAAAAAEAP7/AQAAAAAAAAADAP7/AQAAAAAAAAACAP7/AQAAAAAAAAABAP7/AQAAAAAAAAAAAP7/AQAAAAAAAAD///7/AQAAAAAAAAD+//7/AQAAAAAAAAD9//7/AQAAAAAAAAD8//7/AAAAAAAAAAD8/wQAAQAAAAAAAAD9/wQAAQAAAAAAAAD7/wMAAQAAAAAAAAD8/wMAAAAAAAAAAAD8/wIAAAAAAAAAAAD9/wIAAQAAAAAAAAD7/wEAAQAAAAAAAAD8/wEAAAAAAAAAAAD9/wEAAQAAAAAAAAD8/wAAAAAAAAAAAAD9/wAAAQAAAAAAAAD7////AQAAAAAAAAD8////AAAAAAAAAAD9////AQAAAAAAAAD+////AAAAAAAAAAD/////AAAAAAAAAAAAAP//AAAAAAAAAAAEAAAAAQAAAAAAAAADAAAAAAAAAAAAAAACAAAAAQAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAD//wAAAQAAAAAAAAD+/wAAAAAAAAAAAAD+/wEAAAAAAAAAAAD//wEAAQAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAQAAAAAAAAAEAAIAAQAAAAAAAAADAAIAAQAAAAAAAAACAAIAAQAAAAAAAAABAAIAAQAAAAAAAAAAAAMAAAAAAAAAAAAAAAIAAAAAAAAAAAD//wMAAQAAAAAAAAD//wIAAQAAAAAAAAD+/wMAAQAAAAAAAAD+/wIAAAAAAAAAAAD9/wMAAAAAAAAAAAABAAMAAAAAAAAAAAACAAMAAAAAAAAAAAADAAMAAQAAAAAAAAAEAAQAAQAAAAAAAAADAAQAAAAAAAAAAAACAAQAAQAAAAAAAAABAAQAAQAAAAAAAAAAAAQAAQAAAAAAAAD//wQAAQAAAAAAAAD+/wQAAQAAAAAAAAD7//7/AQAAAAAAAAD7/wAAAQAAAAAAAAD7/wIAAQAAAAAAAAD7/wQAAQAAAAAAAAA=")
+
+[node name="hex_water2" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="0" unique_id=511383051 instance=ExtResource("3_spr4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.933884, 0, -0.5785124)
+
+[node name="@Node3D@22881" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="1" unique_id=1971821577 instance=ExtResource("3_spr4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.950413, 0, -0.5785124)
+
+[node name="@Node3D@22882" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="2" unique_id=633969460 instance=ExtResource("3_spr4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.966942, 0, -0.5785124)
+
+[node name="hex_grass2" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="3" unique_id=1530810425 instance=ExtResource("4_btccv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.92562, 0, -2.3140495)
+
+[node name="@Node3D@22883" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="4" unique_id=389790636 instance=ExtResource("4_btccv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.9421487, 0, -2.3140495)
+
+[node name="@Node3D@22884" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="5" unique_id=528770892 instance=ExtResource("4_btccv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.958678, 0, -2.3140495)
+
+[node name="@Node3D@22885" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="6" unique_id=1583683222 instance=ExtResource("4_btccv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9752066, 0, -2.3140495)
+
+[node name="@Node3D@22886" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="7" unique_id=1357709858 instance=ExtResource("4_btccv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9917355, 0, -2.3140495)
+
+[node name="@Node3D@22887" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="8" unique_id=228868237 instance=ExtResource("4_btccv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9917355, 0, -2.3140495)
+
+[node name="@Node3D@22888" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="9" unique_id=433380626 instance=ExtResource("4_btccv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9752066, 0, -2.3140495)
+
+[node name="@Node3D@22889" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="10" unique_id=783490523 instance=ExtResource("4_btccv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.958678, 0, -2.3140495)
+
+[node name="@Node3D@22890" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="11" unique_id=947921668 instance=ExtResource("4_btccv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9421487, 0, -2.3140495)
+
+[node name="@Node3D@22891" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="12" unique_id=171310032 instance=ExtResource("4_btccv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9421487, 0, 8.099174)
+
+[node name="@Node3D@22892" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="13" unique_id=2063907838 instance=ExtResource("3_spr4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.958678, 0, 8.099174)
+
+[node name="@Node3D@22893" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="14" unique_id=380643070 instance=ExtResource("4_btccv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.933884, 0, 6.3636365)
+
+[node name="@Node3D@22894" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="15" unique_id=766713673 instance=ExtResource("4_btccv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.950413, 0, 6.3636365)
+
+[node name="@Node3D@22895" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="16" unique_id=1464983398 instance=ExtResource("4_btccv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9421487, 0, 4.628099)
+
+[node name="@Node3D@22896" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="17" unique_id=403746782 instance=ExtResource("4_btccv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.958678, 0, 4.628099)
+
+[node name="@Node3D@22897" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="18" unique_id=160620470 instance=ExtResource("4_btccv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.933884, 0, 2.892562)
+
+[node name="@Node3D@22898" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="19" unique_id=240879796 instance=ExtResource("3_spr4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.950413, 0, 2.892562)
+
+[node name="@Node3D@22899" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="20" unique_id=1008651744 instance=ExtResource("3_spr4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.966942, 0, 2.892562)
+
+[node name="@Node3D@22900" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="21" unique_id=566920382 instance=ExtResource("3_spr4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9421487, 0, 1.1570247)
+
+[node name="@Node3D@22901" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="22" unique_id=603984899 instance=ExtResource("4_btccv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.958678, 0, 1.1570247)
+
+[node name="@Node3D@22902" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="23" unique_id=1805852401 instance=ExtResource("4_btccv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.933884, 0, -0.5785124)
+
+[node name="@Node3D@22903" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="24" unique_id=1363420168 instance=ExtResource("3_spr4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.950413, 0, -0.5785124)
+
+[node name="@Node3D@22904" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="25" unique_id=1350166749 instance=ExtResource("3_spr4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.966942, 0, -0.5785124)
+
+[node name="@Node3D@22905" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="26" unique_id=1757042504 instance=ExtResource("3_spr4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.983471, 0, -0.5785124)
+
+[node name="@Node3D@22906" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="27" unique_id=1514765158 instance=ExtResource("3_spr4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5785124)
+
+[node name="@Node3D@22907" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="28" unique_id=80039556 instance=ExtResource("3_spr4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.983471, 0, -0.5785124)
+
+[node name="@Node3D@22908" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="29" unique_id=775831631 instance=ExtResource("4_btccv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.92562, 0, 1.1570247)
+
+[node name="@Node3D@22909" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="30" unique_id=2072563595 instance=ExtResource("4_btccv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.9421487, 0, 1.1570247)
+
+[node name="@Node3D@22910" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="31" unique_id=344309849 instance=ExtResource("4_btccv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.958678, 0, 1.1570247)
+
+[node name="@Node3D@22911" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="32" unique_id=657720946 instance=ExtResource("4_btccv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9752066, 0, 1.1570247)
+
+[node name="@Node3D@22912" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="33" unique_id=230979919 instance=ExtResource("4_btccv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9917355, 0, 1.1570247)
+
+[node name="@Node3D@22913" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="34" unique_id=1367708715 instance=ExtResource("4_btccv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9917355, 0, 1.1570247)
+
+[node name="@Node3D@22914" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="35" unique_id=1845114141 instance=ExtResource("4_btccv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9752066, 0, 1.1570247)
+
+[node name="@Node3D@22915" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="36" unique_id=845054148 instance=ExtResource("3_spr4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.983471, 0, 2.892562)
+
+[node name="@Node3D@22916" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="37" unique_id=673813886 instance=ExtResource("3_spr4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.892562)
+
+[node name="@Node3D@22917" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="38" unique_id=575152950 instance=ExtResource("3_spr4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.983471, 0, 2.892562)
+
+[node name="@Node3D@22918" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="39" unique_id=783432590 instance=ExtResource("3_spr4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.966942, 0, 2.892562)
+
+[node name="@Node3D@22919" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="40" unique_id=1378460760 instance=ExtResource("3_spr4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.950413, 0, 2.892562)
+
+[node name="@Node3D@22920" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="41" unique_id=844478749 instance=ExtResource("4_btccv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.933884, 0, 2.892562)
+
+[node name="@Node3D@22921" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="42" unique_id=1273690047 instance=ExtResource("4_btccv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.92562, 0, 4.628099)
+
+[node name="@Node3D@22922" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="43" unique_id=1601693932 instance=ExtResource("3_spr4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.9421487, 0, 4.628099)
+
+[node name="@Node3D@22923" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="44" unique_id=1847721408 instance=ExtResource("4_btccv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.958678, 0, 4.628099)
+
+[node name="@Node3D@22924" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="45" unique_id=539763745 instance=ExtResource("4_btccv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9752066, 0, 4.628099)
+
+[node name="@Node3D@22925" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="46" unique_id=634000177 instance=ExtResource("3_spr4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.983471, 0, 6.3636365)
+
+[node name="@Node3D@22926" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="47" unique_id=1791492787 instance=ExtResource("4_btccv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9917355, 0, 4.628099)
+
+[node name="@Node3D@22927" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="48" unique_id=1633215217 instance=ExtResource("3_spr4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.3636365)
+
+[node name="@Node3D@22928" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="49" unique_id=1637810793 instance=ExtResource("3_spr4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9917355, 0, 4.628099)
+
+[node name="@Node3D@22929" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="50" unique_id=1538987628 instance=ExtResource("3_spr4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.983471, 0, 6.3636365)
+
+[node name="@Node3D@22930" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="51" unique_id=1569257278 instance=ExtResource("4_btccv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9752066, 0, 4.628099)
+
+[node name="@Node3D@22931" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="52" unique_id=871757054 instance=ExtResource("3_spr4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.966942, 0, 6.3636365)
+
+[node name="@Node3D@22932" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="53" unique_id=2052601698 instance=ExtResource("3_spr4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.966942, 0, 6.3636365)
+
+[node name="@Node3D@22933" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="54" unique_id=1509387406 instance=ExtResource("3_spr4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.950413, 0, 6.3636365)
+
+[node name="@Node3D@22934" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="55" unique_id=103362920 instance=ExtResource("4_btccv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.933884, 0, 6.3636365)
+
+[node name="@Node3D@22935" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="56" unique_id=897681773 instance=ExtResource("4_btccv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.92562, 0, 8.099174)
+
+[node name="@Node3D@22936" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="57" unique_id=492532226 instance=ExtResource("4_btccv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.9421487, 0, 8.099174)
+
+[node name="@Node3D@22937" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="58" unique_id=123943613 instance=ExtResource("4_btccv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.958678, 0, 8.099174)
+
+[node name="@Node3D@22938" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="59" unique_id=2002852825 instance=ExtResource("4_btccv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9752066, 0, 8.099174)
+
+[node name="@Node3D@22939" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="60" unique_id=372871855 instance=ExtResource("4_btccv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9917355, 0, 8.099174)
+
+[node name="@Node3D@22940" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="61" unique_id=108782992 instance=ExtResource("4_btccv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9917355, 0, 8.099174)
+
+[node name="@Node3D@22941" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="62" unique_id=860673767 instance=ExtResource("4_btccv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9752066, 0, 8.099174)
+
+[node name="@Node3D@22942" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="63" unique_id=1042880967 instance=ExtResource("4_btccv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.92562, 0, -2.3140495)
+
+[node name="@Node3D@22943" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="64" unique_id=1736397745 instance=ExtResource("4_btccv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.92562, 0, 1.1570247)
+
+[node name="@Node3D@22944" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="65" unique_id=1342004114 instance=ExtResource("4_btccv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.92562, 0, 4.628099)
+
+[node name="@Node3D@22945" type="Node3D" parent="Hexagon2DTo3D/Hexgrid3D" parent_id_path=PackedInt32Array(508301540, 1907455449) index="66" unique_id=634055365 instance=ExtResource("4_btccv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.92562, 0, 8.099174)
+
+[node name="Start" type="Marker2D" parent="Hexagon2DTo3D" unique_id=39696537]
+position = Vector2(-420, -146)
+
+[node name="End" type="Marker2D" parent="Hexagon2DTo3D" unique_id=1127413002]
+position = Vector2(414, 490)
+
+[node name="SoldierEnemy" parent="." unique_id=527387209 instance=ExtResource("6_btccv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -0.583)
+
+[node name="CameraAnchor" type="Node3D" parent="." unique_id=664156127]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Camera3D" type="Camera3D" parent="CameraAnchor" unique_id=966297514]
+transform = Transform3D(1, 0, 0, 0, 0.6427876, 0.76604444, 0, -0.7660444, 0.64278764, 0, 9, 7.5)
+projection = 1
+current = true
+size = 11.9926405
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1432229239]
+transform = Transform3D(0.0063191536, 0.80224895, 0.5969562, 0.008491831, -0.59698975, 0.802204, 0.999944, 1.8627495e-09, -0.0105850315, 26.500885, 22.181337, 6)
+light_angular_distance = 0.5
+shadow_enabled = true
+shadow_bias = 0.02
+shadow_normal_bias = 1.0
+shadow_transmittance_bias = 0.7
+directional_shadow_mode = 1
+directional_shadow_blend_splits = true
+directional_shadow_max_distance = 30.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1455022727]
+environment = SubResource("Environment_s6lck")
 
 [editable path="Hexagon2DTo3D"]

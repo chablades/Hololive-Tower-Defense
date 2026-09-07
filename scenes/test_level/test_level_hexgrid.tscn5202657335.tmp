@@ -1,0 +1,55 @@
+[gd_scene format=4 uid="uid://bojv3sqc268hc"]
+
+[ext_resource type="Texture2D" uid="uid://d3j464q1wuhqp" path="res://assets/kenney_hexagon-pack/PNG/Tiles/Terrain/Dirt/dirt_06.png" id="1_s6lck"]
+[ext_resource type="Script" uid="uid://bqhlsehbvg247" path="res://scenes/test_level/test_level_hexgrid.gd" id="1_spr4s"]
+[ext_resource type="Texture2D" uid="uid://ds2mbu6ip41lx" path="res://assets/kenney_hexagon-pack/PNG/Tiles/Terrain/Grass/grass_05.png" id="2_spr4s"]
+[ext_resource type="Script" uid="uid://buj6ft1vvdf2f" path="res://addons/hexagon_tilemaplayer/hexagon_tilemaplayer.gd" id="3_btccv"]
+[ext_resource type="Script" uid="uid://ced7auhhw5p8b" path="res://scripts/tools/hex_to_3d_sync.gd" id="4_1n01m"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s5nos"]
+resource_name = "Dirt"
+texture = ExtResource("1_s6lck")
+texture_region_size = Vector2i(120, 140)
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrain = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_khxyv"]
+resource_name = "Grass"
+texture = ExtResource("2_spr4s")
+texture_region_size = Vector2i(120, 140)
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrain = 1
+
+[sub_resource type="TileSet" id="TileSet_jb662"]
+tile_shape = 3
+tile_size = Vector2i(120, 140)
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Dirt"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+terrain_set_0/terrain_1/name = "Grass"
+terrain_set_0/terrain_1/color = Color(0.21568628, 0.63529414, 0.2509804, 1)
+sources/0 = SubResource("TileSetAtlasSource_s5nos")
+sources/1 = SubResource("TileSetAtlasSource_khxyv")
+
+[node name="TestLevelHexgrid" type="Node3D" unique_id=1231465354]
+script = ExtResource("1_spr4s")
+
+[node name="Hexagon2DTo3D" type="TileMapLayer" parent="." unique_id=508301540]
+tile_map_data = PackedByteArray("AAD//wAAAQAAAAAAAAD+/wAAAQAAAAAAAAD9////AAAAAAAAAAD+////AAAAAAAAAAD/////AAAAAAAAAAAAAP//AAAAAAAAAAABAP//AAAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAD9/wEAAAAAAAAAAAD+/wEAAAAAAAAAAAD//wEAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAP//AAAAAAAAAAACAAAAAQAAAAAAAAACAAEAAAAAAAAAAAADAAIAAAAAAAAAAAACAAIAAQAAAAAAAAABAAIAAQAAAAAAAAAAAAIAAQAAAAAAAAD//wIAAQAAAAAAAAD+/wIAAQAAAAAAAAD9/wIAAQAAAAAAAAD9/wAAAAAAAAAAAAADAAAAAQAAAAAAAAD9//7/AQAAAAAAAAD+//7/AQAAAAAAAAD///7/AQAAAAAAAAAAAP7/AQAAAAAAAAABAP7/AQAAAAAAAAACAP7/AQAAAAAAAAADAP7/AQAAAAAAAAD8//7/AQAAAAAAAAD8////AQAAAAAAAAD8/wAAAQAAAAAAAAD8/wEAAQAAAAAAAAD8/wIAAQAAAAAAAAD8/wMAAQAAAAAAAAD9/wMAAAAAAAAAAAD+/wMAAAAAAAAAAAD//wMAAAAAAAAAAAAAAAMAAAAAAAAAAAABAAMAAAAAAAAAAAACAAMAAAAAAAAAAAAEAP7/AQAAAAAAAAADAP//AAAAAAAAAAAEAAAAAQAAAAAAAAADAAEAAQAAAAAAAAAEAAIAAQAAAAAAAAADAAMAAQAAAAAAAAAEAAQAAQAAAAAAAAADAAQAAQAAAAAAAAACAAQAAQAAAAAAAAABAAQAAQAAAAAAAAAAAAQAAQAAAAAAAAD//wQAAQAAAAAAAAD+/wQAAQAAAAAAAAD9/wQAAAAAAAAAAAD8/wQAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_jb662")
+script = ExtResource("3_btccv")
+pathfinding_enabled = true
+metadata/_custom_type_script = "uid://buj6ft1vvdf2f"
+
+[node name="HexTo3DSync" type="Node" parent="Hexagon2DTo3D" unique_id=498023429]
+script = ExtResource("4_1n01m")
+
+[node name="Hexgrid3D" type="Node3D" parent="Hexagon2DTo3D" unique_id=209277063]
+
+[node name="Start" type="Marker2D" parent="Hexagon2DTo3D" unique_id=39696537]
+position = Vector2(482, -33)
+
+[node name="End" type="Marker2D" parent="Hexagon2DTo3D" unique_id=1127413002]
+position = Vector2(-306, 496)
