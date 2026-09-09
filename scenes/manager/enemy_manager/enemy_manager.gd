@@ -3,6 +3,11 @@ extends Node
 const ENEMY = preload("uid://cgvjr8wvm1b61")
 
 
+
+func setup() -> void:
+	pass
+
+
 func register_enemy() -> void:
 	pass
 	

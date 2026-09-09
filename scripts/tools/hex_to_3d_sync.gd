@@ -2,7 +2,7 @@
 
 extends Node
 
-@export_tool_button("Run Mapping") var run_function = _on_tiles_changed
+@export_tool_button("Run Mapping") var run_function = generate_3d_hexgrid
 #@export var previous_cells: Dictionary[Vector2i, int] = {}
 #@export var previous_coordinates: Array[Vector2i] = []
 
@@ -26,13 +26,12 @@ func _ready() -> void:
 		push_error("HexagonTileMapLayer parent not found.")
 		return
 	if not Engine.is_editor_hint():
-		call_deferred("_on_tiles_changed")
+		call_deferred("generate_3d_hexgrid")
 	#previous_coordinates = _hex_layer.get_used_cells()
 	#for coordinates in previous_coordinates:
 		#previous_cells[coordinates] = _hex_layer.get_cell_source_id(coordinates)
 
-func _on_tiles_changed() -> void:
-	print("Running mapping")
+func generate_3d_hexgrid() -> void:
 	_hexgrid_3d = $"../Hexgrid3D"
 	remove_all_child_nodes(_hexgrid_3d)
 	var current_cells: Dictionary[Vector2i, int] = {}
@@ -42,6 +41,7 @@ func _on_tiles_changed() -> void:
 	
 	for coordinates in current_cells:
 		var hex_scene: PackedScene = TILE_TO_MESH[current_cells[coordinates]]
+		
 		add_child_node(coordinates, hex_scene)
 	
 	#var added: Dictionary = {}
@@ -70,11 +70,34 @@ func remove_all_child_nodes(node: Node3D) -> void:
 func add_child_node(coordinates: Vector2i, scene: PackedScene) -> void:
 	var pixel_pos: Vector2 = _hex_layer.map_to_local(coordinates)
 	var world_pos: Vector3 = pixel_position_to_world(pixel_pos)
-	var hex_instance: Node = scene.instantiate()
-	_hexgrid_3d.add_child(hex_instance)
-	hex_instance.owner = get_tree().edited_scene_root
-	hex_instance.global_position = world_pos
+	var hex_instance: Node3D = scene.instantiate()
+	var static_body_instance: StaticBody3D = wrap_with_collision(hex_instance, coordinates)
+	_hexgrid_3d.add_child(static_body_instance)
+	static_body_instance.owner = get_tree().edited_scene_root
+	static_body_instance.global_position = world_pos
+
+
+func wrap_with_collision(mesh: Node3D, coordinates: Vector2i) -> StaticBody3D:
+	var body := StaticBody3D.new()
+	body.add_child(mesh)
+	var shape := CollisionShape3D.new()
+	var box := BoxShape3D.new()
+	box.size = get_hex_size(mesh)
+	shape.shape = box
+	body.add_child(shape)
+	body.set_meta("grid_coord", coordinates)
+	return body
+
+
+func get_hex_size(mesh_node: Node3D) -> Vector3:
+	var size: Vector3 = Vector3.ZERO
+	for child in mesh_node.get_children():
+		if child is MeshInstance3D:
+			size = child.get_aabb().size
+	return size
 	
+
+
 func pixel_position_to_world(pixel_pos: Vector2) -> Vector3:
 	var world_x: float = pixel_pos.x * PIXEL_TO_METER_RATIO
 	var world_z: float = pixel_pos.y * PIXEL_TO_METER_RATIO

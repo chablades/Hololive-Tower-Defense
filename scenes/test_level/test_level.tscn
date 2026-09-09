@@ -13,6 +13,8 @@ sky_material = SubResource("ProceduralSkyMaterial_3axm2")
 background_mode = 2
 sky = SubResource("Sky_cnpj0")
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_sbo7d"]
+
 [node name="TestLevel" type="Node3D" unique_id=555908527]
 script = ExtResource("1_62xr1")
 
@@ -53,3 +55,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 7)
 
 [node name="SoldierEnemy" parent="." unique_id=527387209 instance=ExtResource("3_vxsof")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.154647)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1416683312]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1080081516]
+shape = SubResource("CylinderShape3D_sbo7d")

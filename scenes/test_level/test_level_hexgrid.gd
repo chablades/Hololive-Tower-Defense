@@ -16,12 +16,9 @@ func _ready() -> void:
 	soldier_enemy.global_position = hex_to_3d_sync.pixel_position_to_world(start.position)
 	var map_start: Vector2i = hexagon_2d_to_3d.local_to_map(start.position)
 	var map_end: Vector2i = hexagon_2d_to_3d.local_to_map(end.position)
-	print("Start: %s | End: %s" % [map_start, map_end])
 	_path_local = generate_a_star_path(map_start, map_end)
-	print(_path_local)
 	for coordinate in _path_local:
 		_path_world.append(hex_to_3d_sync.pixel_position_to_world(coordinate))
-	print(_path_world)
 	soldier_enemy.go_to(_path_world)
 
 

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bimeglwma35fu"]
+
+[ext_resource type="Script" uid="uid://lqhwpti2m2j0" path="res://scenes/components/hex_picker/hex_picker_component.gd" id="1_tvdio"]
+
+[node name="HexPickerComponent" type="Node" unique_id=968897454]
+script = ExtResource("1_tvdio")

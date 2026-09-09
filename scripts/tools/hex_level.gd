@@ -3,7 +3,7 @@
 extends HexagonTileMapLayer
 
 
-func _pathfinding_get_tile_weight(coords: Vector2i) -> float:
+func _pathfinding_get_tile_weight(_coords: Vector2i) -> float:
 	return 1.0
 
 

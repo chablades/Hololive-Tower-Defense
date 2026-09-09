@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://5xh1c122fk08" path="res://assets/placeholder_sprite_frames/soldier/Soldier_Attack01.png" id="1_40wdo"]
 [ext_resource type="Script" uid="uid://b45f37sc1pgxs" path="res://scenes/enemy/enemy.gd" id="1_cwlon"]
 [ext_resource type="Texture2D" uid="uid://dntbucwpfr05j" path="res://assets/placeholder_sprite_frames/soldier/Soldier_Idle.png" id="2_tjssy"]
-[ext_resource type="PackedScene" uid="uid://dalw3236ds05w" path="res://scripts/components/velocity/velocity_component.tscn" id="4_gl05p"]
-[ext_resource type="PackedScene" uid="uid://cs4omikhhoswp" path="res://scripts/components/path_following/path_following_component.tscn" id="5_cwlon"]
-[ext_resource type="PackedScene" uid="uid://dyku0r28xr808" path="res://scripts/components/health/health_component.tscn" id="6_cwlon"]
+[ext_resource type="PackedScene" uid="uid://dalw3236ds05w" path="res://scenes/components/velocity/velocity_component.tscn" id="4_gl05p"]
+[ext_resource type="PackedScene" uid="uid://cs4omikhhoswp" path="res://scenes/components/path_following/path_following_component.tscn" id="5_cwlon"]
+[ext_resource type="PackedScene" uid="uid://dyku0r28xr808" path="res://scenes/components/health/health_component.tscn" id="6_cwlon"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hvxgb"]
 atlas = ExtResource("1_40wdo")
@@ -187,9 +187,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.018249512, 0)
 shape = SubResource("CylinderShape3D_hvxgb")
 
 [node name="VelocityComponent" parent="." unique_id=1077545805 instance=ExtResource("4_gl05p")]
-max_speed = 10.0
+max_speed = 1.0
 
 [node name="HealthComponent" parent="." unique_id=452245986 instance=ExtResource("6_cwlon")]
+max_health = 200.0
 
 [node name="MovementComponent" parent="." unique_id=1582985973 node_paths=PackedStringArray("velocity") instance=ExtResource("5_cwlon")]
 velocity = NodePath("../VelocityComponent")
