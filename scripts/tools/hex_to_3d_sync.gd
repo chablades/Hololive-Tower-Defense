@@ -32,6 +32,10 @@ func _ready() -> void:
 		#previous_cells[coordinates] = _hex_layer.get_cell_source_id(coordinates)
 
 func generate_3d_hexgrid() -> void:
+<<<<<<< HEAD
+=======
+	print("Running mapping")
+>>>>>>> 301f7dff4bd173799a26ad5fc865c337270d5e26
 	_hexgrid_3d = $"../Hexgrid3D"
 	remove_all_child_nodes(_hexgrid_3d)
 	var current_cells: Dictionary[Vector2i, int] = {}
